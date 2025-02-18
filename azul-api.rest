@@ -1,0 +1,55 @@
+GET https://api.azul.com/metadata/v1/zulu/packages
+    ?page=1
+    &page_size=10
+    &arch=x86
+    &archive_type=tar_gz
+    &include_fields=os HTTP/1.1
+
+###
+
+GET https://api.azul.com/metadata/v1/zulu/packages
+    ?os=linux
+    &page=1
+    &page_size=100
+    # &os=elol
+    # &archive_type=zip
+    # &include_fields=os,arch
+    # &azul_com=true
+    # &availability_types=ca
+    # &arch=x86
+
+###
+
+GET https://api.azul.com/metadata/v1/zulu/packages
+    ?availability_types=ca
+    &release_status=both
+    &page_size=1000
+    &include_fields=java_package_features,release_status,support_term,os,arch,hw_bitness,abi,java_package_type,javafx_bundled,sha256_hash,cpu_gen,size,archive_type,certifications,lib_c_type,crac_supported
+    &page=8
+    &azul_com=true
+
+###
+
+GET https://api.azul.com/metadata/v1/zulu/packages/
+    ?os=windows
+    # &release_status=ga
+    # &availability_types=CA
+    # &certifications=tck
+    &include_fields=os
+    &page=1
+    &page_size=100
+
+###
+
+# Esta es la buena
+GET https://api.azul.com/metadata/v1/zulu/packages
+    ?page=1
+    &page_size=10
+    &arch=x86
+    &os=windows
+    &archive_type=zip
+    &release_status=ga
+    &java_package_type=jdk
+    &javafx_bundled=false
+    &certifications=tck
+    &availability_types=ca
